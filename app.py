@@ -113,12 +113,14 @@ with col1:
         st.session_state.cambio = dinero - st.session_state.total
         if st.session_state.cambio < 0:
             st.warning("Falta dinero del cliente.")
+
 with col2:
     if st.button("Reiniciar todo"):
         st.session_state.unidades = [0] * len(BEBIDAS)
         st.session_state.total = 0.0
         st.session_state.dinero_cliente = 0.0
         st.session_state.cambio = 0.0
+        st.rerun()
 
 if st.session_state.dinero_cliente > 0:
     st.markdown(f"### Cambio: €{st.session_state.cambio:.2f}")
